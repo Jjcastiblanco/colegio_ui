@@ -1,0 +1,30 @@
+<h1> Asignaturas por docente</h1>
+<hr>
+
+<div class="input-group mb-3 mt-2">
+    <div class="input-group-prepend">
+      <label class="input-group-text" for="inputGroupSelect01">Options</label>
+    </div>
+    <select  [(ngModel)]="id" class="custom-select" id="inputGroupSelect01" (change)="onCarrera($event)">
+      <option value="0" selected>Chose...</option>
+      <option value= "{{teacher.id}}"*ngFor="let teacher of teacher">{{teacher.nombreProfesor}}</option>
+    </select>
+  </div>
+  <div class="accordion accordion-flush" id="accordionFlushExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingOne">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+            Subject the teacher
+        </button>
+      </h2>
+      <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">
+            <ul class="">
+                <li >
+                    {{ subjectTeacher}}
+                </li>
+            </ul>
+        </div>
+      </div>
+    </div>
+  </div>
