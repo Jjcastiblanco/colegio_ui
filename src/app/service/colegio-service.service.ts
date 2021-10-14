@@ -15,7 +15,7 @@ export class ColegioServiceService {
    }
 
    getSubject(id: string){
-     return this.http.get(this.url+`/Asignaturas/${id}`);
+     return this.http.get(this.url+`/Asignaturas/course/${id}`);
    }
 
    getTeacher(){

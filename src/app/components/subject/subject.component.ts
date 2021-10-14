@@ -18,6 +18,7 @@ export class SubjectComponent implements OnInit {
     .subscribe((data:any) =>{
       this.teacher = data;  
     });
+  
   }
 
   ngOnInit(): void {
@@ -26,10 +27,16 @@ export class SubjectComponent implements OnInit {
   private getTeacherSubject(teacherId: string){
     this.subject.getSubject(teacherId)
     .subscribe((data:any) =>{
-      this.subjectTeacher = data.nombreAsignatura;
-      console.log(this.subjectTeacher, "teacher");
+      this.subjectTeacher = data;
     });
   }
+
+  public getSubjetByStrudent(subject:any){
+    console.log(subject.split(','))
+    return subject.split(',')
+    
+  }
+
 
   onCarrera(e :any) {
      this.getTeacherSubject(e.target.value);

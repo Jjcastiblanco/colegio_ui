@@ -3,26 +3,41 @@
 
 <div class="input-group mb-3 mt-2">
     <div class="input-group-prepend">
-      <label class="input-group-text" for="inputGroupSelect01">Options</label>
+      <label class="input-group-text" for="inputGroupSelect01">Opciones</label>
     </div>
     <select  [(ngModel)]="id" class="custom-select" id="inputGroupSelect01" (change)="onCarrera($event)">
-      <option value="0" selected>Chose...</option>
+      <option value="0" selected>Buscar...</option>
       <option value= "{{teacher.id}}"*ngFor="let teacher of teacher">{{teacher.nombreProfesor}}</option>
     </select>
   </div>
-  <div class="accordion accordion-flush" id="accordionFlushExample">
+  <div class="accordion accordion-flush " id="accordionFlushExample" >
     <div class="accordion-item">
       <h2 class="accordion-header" id="flush-headingOne">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+        <button class="accordion-button collapsed"  type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
             Subject the teacher
         </button>
       </h2>
       <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
         <div class="accordion-body">
             <ul class="">
-                <li >
-                    {{ subjectTeacher}}
-                </li>
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Asignatura</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Curso</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let subject of subjectTeacher; index as i">
+                    <th scope="row">{{i +1}}</th>
+                    <td>{{getSubjetByStrudent(subject)[0]}}</td>
+                    <td>{{getSubjetByStrudent(subject)[1]}}</td>
+                    <td>{{getSubjetByStrudent(subject)[2]}}</td>
+                  </tr>
+                </tbody>
+              </table>
             </ul>
         </div>
       </div>
